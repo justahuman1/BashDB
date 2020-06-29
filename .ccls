@@ -1,0 +1,3 @@
+gcc
+%h -x c++-header
+-I./include/
