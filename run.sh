@@ -15,6 +15,8 @@ checkExistingFolder ./build && cd ./build
 if [[ $1 = "debug" ]]; then
   # Debug mode generation for GDB
   cmake -DCMAKE_BUILD_TYPE=Debug .. && exit 0
+elif [[ $1 = "bin" ]]; then
+    ./build/bin/bashDB $2 $3 $4
 else
   # All release flags defined in Cmakelists
   cmake .. && make && exit 0
