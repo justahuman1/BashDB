@@ -19,6 +19,6 @@ int main(int argc, char** argv) {
     app.add_option("-v,--value", value, "The value to use for the corresponding subcommand", false);
 
     CLI11_PARSE(app, argc, argv);
-    Parser::parseInput(*argv);
+    Parser::parseInput(&app, key, value);
     return 0;
 }
