@@ -1,7 +1,7 @@
 #ifndef PARSER_H
 #define PARSER_H
 
-#include <CLI11/CLI11.hpp>
+#include <CLI/CLI11.hpp>
 #include <iostream>
 
 namespace Parser {

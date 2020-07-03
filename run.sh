@@ -15,12 +15,13 @@ checkExistingFolder ./build && cd ./build
 if [[ $1 = "debug" ]]; then
   # Debug mode generation for GDB
   cmake -DCMAKE_BUILD_TYPE=Debug .. && exit 0
-elif [[ $1 = "bin" ]]; then
-    ./build/bin/bashDB $2 $3 $4
-else
+elif [[ $1 = "make" ]]; then
   # All release flags defined in Cmakelists
   cmake .. && make && exit 0
+else
+    DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+    $DIR/bin/bashDB "$@"
 fi
 
-# build process error
+# process error
 exit 1
