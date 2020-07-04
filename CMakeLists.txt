@@ -13,6 +13,7 @@ file(GLOB SOURCES
 
 # Include folders
 set(BASHDB_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
+set(BASHDB_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include/BashDB)
 include_directories(${BASHDB_INCLUDE_DIR})
 
 add_executable("${PROJECT_NAME}" ${SOURCES})

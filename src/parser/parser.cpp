@@ -7,8 +7,8 @@ namespace Parser {
 
   int parseInput(CLI::App *app) {
 
-    std::string key = "Moot";
-    std::string value = "Poot";
+    std::string key;
+    std::string value;
 
     // Subcommands
     auto getter = app->add_subcommand("get", "Put a value in the corresponding key (will overwrite)");
@@ -16,9 +16,12 @@ namespace Parser {
     auto safesetter = app->add_subcommand("safeset", "Put a value in the corresponding key if not exists (does not overwrite)");
 
    // Flags
-   getter->add_option("-k,--key", key, "The key to use for the corresponding subcommand. The identifier for a value.")->required();
-   setter->add_option("-k,--key", key, "The key to use for the corresponding subcommand")->required();
-   setter->add_option("-v,--value", value, "The value to use for the corresponding subcommand")->required();
+   getter->
+       add_option("-k,--key", key, "The key to use for the corresponding subcommand. The identifier for a value.")->required();
+   setter->
+       add_option("-k,--key", key, "The key to use for the corresponding subcommand")->required();
+   setter->
+       add_option("-v,--value", value, "The value to use for the corresponding subcommand")->required();
 
     handleGet(getter);
     handleSet(getter);
