@@ -16,6 +16,8 @@ class DiskManager {
 
      void WriteData(const std::string key, const char *key_data);
 
+    void ShutDown();
+
     private:
      std::fstream db_io_;
      std::string file_name_;
