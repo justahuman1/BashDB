@@ -12,9 +12,7 @@ file(GLOB SOURCES
 )
 
 # Include folders
-set(BASHDB_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
-set(BASHDB_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include/BashDB)
-include_directories(${BASHDB_INCLUDE_DIR})
+include_directories(include)
 
 add_executable("${PROJECT_NAME}" ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE "${PROJECT_SOURCE_DIR/include}")

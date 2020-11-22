@@ -1,48 +1,47 @@
-#include <CLI/CLI11.hpp>
 #include <iostream>
 #include <string>
 #include <BashDB/parser.hpp>
 
+using namespace std;
+
 namespace Parser {
 
-  int parseInput(CLI::App *app) {
+  int parseInput(int argc, char *argv[]) {
+    if (argc < 2) {
+      show_usage();
+      return 0;
+    }
+    // Convert first argument to action & dispatch corresponding action
+    string res(argv[1]);
 
-    std::string key;
-    std::string value;
+    // TODO: Parse options -> Dispatch action
 
-    // Subcommands
-    auto getter = app->add_subcommand("get", "Put a value in the corresponding key (will overwrite)");
-    auto setter = app->add_subcommand("set", "Get the value for the corresponding key");
-    auto safesetter = app->add_subcommand("safeset", "Put a value in the corresponding key if not exists (does not overwrite)");
-
-   // Flags
-   getter->
-       add_option("-k,--key", key, "The key to use for the corresponding subcommand. The identifier for a value.")->required();
-   setter->
-       add_option("-k,--key", key, "The key to use for the corresponding subcommand")->required();
-   setter->
-       add_option("-v,--value", value, "The value to use for the corresponding subcommand")->required();
-
-    handleGet(getter);
-    handleSet(getter);
-    handleSafeSet(getter);
+    if(res == "get"){
+       cout << "getExcellent!" << endl;
+    } else if(res == "set"){
+       cout << "setYou passed" << endl;
+    } else if(res == "safeset"){
+       cout << "safeBetter try again" << endl;
+    } else {
+      cout << "'" << res << "'" << " Not Found" << endl;
+      show_usage();
+      return 1;
+    }
     return 0;
   }
 
-  void handleGet(CLI::App *getter){
-      getter->callback( [&](){
-          std::cout << "Getter callback" << std::endl;
-      });
-  }
-  void handleSet(CLI::App *setter){
-      setter->callback( [&](){
-          std::cout << "Setter callback" << std::endl;
-      });
-  }
-  void handleSafeSet(CLI::App *safesetter){
-      safesetter->callback( [&](){
-          std::cout << "SafeSetter callback" << std::endl;
-      });
+  // Help menu
+  static void show_usage() {
+    std::cerr << "Usage:\n bashDB [ACTION] [OPTIONS]...\n"
+      << "Actions:\n"
+      << "\tget\t\tShow this help message\n"
+      << "\tset\t\tShow this help message\n"
+      << "\tsafeset\t\tShow this help message\n"
+      << "Options:\n"
+      << "\t-h,--help\t\tShow this help message\n"
+      << "\t-k,--key\t\tShow this help message\n"
+      << "\t-v,--value DESTINATION\tSpecify the destination path"
+      << std::endl;
   }
 
 }
