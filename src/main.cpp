@@ -7,5 +7,6 @@ int main(int argc, char *argv[]) {
   // 4. If WAL is successful, add to Memtable
   // 5. Compaction/flush threads
 
-  return Parser::parseInput(argc, argv);
+  Parser::parseInput(argc, argv);
+  return 0;
 }
