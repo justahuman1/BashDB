@@ -11,6 +11,7 @@ checkExistingFolder() {
 
 # Create build folder if not exists
 checkExistingFolder ./build && cd ./build
+# TODO: Add CCLS and compile_commands.json build files
 
 if [[ $1 = "debug" ]]; then
   # Debug mode generation for GDB

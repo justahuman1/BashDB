@@ -21,6 +21,7 @@ BashDB aims to be a simple state manager for bash scripts. Rather than simply wr
 - Data compression on write
 - In-memory caching
 - Unified storage throughout scripts (less maintenance overhead)
+- Version Controlled Backups
 
 ## Quickstart <a name="quickstart"></a>
 
@@ -48,3 +49,4 @@ The relevant storage architecture for bash scripts is a key value store. Relatio
 - SSTable
 - CLI
 - Compactor
+- Version Controller
