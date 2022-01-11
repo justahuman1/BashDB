@@ -25,6 +25,11 @@ BashDB aims to be a simple state manager for bash scripts. Rather than simply wr
 
 ## Quickstart <a name="quickstart"></a>
 
+See the `run.sh` script for available commands.
+
+- Make
+  - `cmake .. && make && exit 0`
+
 ## Architecture
 
 The relevant storage architecture for bash scripts is a key value store. Relational data is unlikely and reaching for relational objects in a bash scripts implies that bash was not the proper tooling for that particular application. BashDB is not a replacement for environment variables; thus, it is likely that the percentage of writes is equivalent of reads. As such, we optimize the data structure for writes first and then reads. The high level write to storage layer is as follows:
